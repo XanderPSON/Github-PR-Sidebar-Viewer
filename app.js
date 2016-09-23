@@ -4,8 +4,10 @@ $document.ready(){
   var pullRequests = getPRs(refs);
   var completedDiv = buildDiv(pullRequests);
 
-  var sidebar = document.getElementsByClassName('discussion-sidebar');
-  sidebar.insertBefore(completedDiv, sidebar.firstChild);
+  var sidebar = document.getElementById('partial-discussion-sidebar')
+  var child = document.createElement('div');
+  child.innerHTML = completedDiv
+  sidebar.insertBefore(child, sidebar.firstChild);
 }
 
 function getPRs(refs) {
